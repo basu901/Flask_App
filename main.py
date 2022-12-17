@@ -1,5 +1,7 @@
 from flask import Flask, render_template, request
 
+from utils import data_population
+
 app = Flask(__name__,template_folder='./')
 
 
@@ -28,6 +30,7 @@ def index():
         + "Fahrenheit: "
         + fahrenheit
     )'''
+    data_population("drink_database.db")
     return render_template("index.html")
 
 
