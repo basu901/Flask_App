@@ -1,7 +1,6 @@
-from flask import Flask
-from flask import request
+from flask import Flask, render_template, request
 
-app = Flask(__name__)
+app = Flask(__name__,template_folder='./')
 
 
 def fahrenheit_from(celsius):
@@ -16,7 +15,7 @@ def fahrenheit_from(celsius):
 
 @app.route("/")
 def index():
-    celsius = request.args.get("celsius", "")
+    '''celsius = request.args.get("celsius", "")
     if celsius:
         fahrenheit = fahrenheit_from(celsius)
     else:
@@ -28,7 +27,8 @@ def index():
             </form>"""
         + "Fahrenheit: "
         + fahrenheit
-    )
+    )'''
+    return render_template("index.html")
 
 
 if __name__ == "__main__":
